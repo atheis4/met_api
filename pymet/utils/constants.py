@@ -57,3 +57,7 @@ class CsvPaths:
     _ROOT_PATH = '/Users/Andrew/wip/art_crawl'
     COLLECTION = os.path.join(_ROOT_PATH, 'met_openaccess/MetObjects.csv')
     PAINTINGS = os.path.join(_ROOT_PATH, 'pymet/data/MetPaintings.csv')
+
+
+class Urls:
+    MET_ROOT = 'http://www.metmuseum.org/art/collection/search/'
