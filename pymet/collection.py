@@ -1,3 +1,4 @@
+import attrdict
 import collections
 import pandas as pd
 from typing import Dict, List
@@ -10,9 +11,9 @@ class Met:
 
     def __init__(self):
         self.data = pd.read_csv(self._path_to_csv, encoding='utf8')
-        self._clean_columns()
+        self._clean_column_names()
 
-    def _clean_columns(self) -> None:
+    def _clean_column_names(self) -> None:
         self.data.columns = [
             col.lower().replace(' ', '_') for col in self.data.columns
         ]
@@ -44,7 +45,7 @@ class MetPaintings(Met):
     def contains_artist(self, artist: str) -> bool:
         return artist.lower() in self.lookup.keys()
 
-    def works_by_artist(self, artist: str) -> pd.DataFrame:
+    def get_works_by_artist(self, artist: str) -> List[attrdict.AttrDict]:
         if not self.contains_artist(artist):
             raise RuntimeError(
                 f'Artist request {artist} not found in lookup of Met artists. '
@@ -55,4 +56,7 @@ class MetPaintings(Met):
             rows.append(
                 self.data[self.data.artist_alpha_sort == f'{alpha_name}']
             )
-        return pd.concat(rows, sort=False)
+        return [
+            attrdict.AttrDict(record) for record
+            in pd.concat(rows, sort=False).to_dict('records')
+        ]
