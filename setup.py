@@ -11,7 +11,7 @@ dependencies = [
 setup(
     name='pymet',
     version='0.0.1',
-    packages=['pymet'],
+    packages=['pymet', 'pymet.utils'],
     url='https://github.com/atheis4/met_api',
     dependencies=dependencies,
     license='',

@@ -27,3 +27,10 @@ A list of all the columns (after transformation) in the dataset can be found [he
 `MetPaintings` is an object intended to make all the paintings in the collection more accessible for study. For this reason I have limited the columns that are contained in this dataset. This represents 6100 individual works in 750 mediums.
 
 This is the primary object I will be developing and working with.
+
+### Incapsula
+The Met prevents accessing their collection by web scraping through the incapsula service.
+
+At first I tried using incapsula-cracker-py3 to handle my requests to their server, but this did not bypass incapsula.
+
+My next plan is to try using PhantomJS and Selenium to better impersonate a non-bot user. 
