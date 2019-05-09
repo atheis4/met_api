@@ -34,3 +34,10 @@ The Met prevents accessing their collection by web scraping through the incapsul
 At first I tried using incapsula-cracker-py3 to handle my requests to their server, but this did not bypass incapsula.
 
 My next plan is to try using PhantomJS and Selenium to better impersonate a non-bot user. 
+
+###Note
+Seems odd that the Met would offer a dataset that is clearly not consumable by a human (~500,000 rows), provide the url to the resource, but then block it with Incapsula.
+
+###PhantomJS
+[PhantomJS](http://phantomjs.org/) 
+on Mac: `brew cask install phantomjs` 
