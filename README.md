@@ -35,9 +35,13 @@ At first I tried using incapsula-cracker-py3 to handle my requests to their serv
 
 My next plan is to try using PhantomJS and Selenium to better impersonate a non-bot user. 
 
-###Note
-Seems odd that the Met would offer a dataset that is clearly not consumable by a human (~500,000 rows), provide the url to the resource, but then block it with Incapsula.
-
 ###PhantomJS
 [PhantomJS](http://phantomjs.org/) 
-on Mac: `brew cask install phantomjs` 
+on Mac: `brew cask install phantomjs`
+
+PhantomJS is deprecated.
+
+###Chrome WebDriver
+I downloaded the chrome webdriver and found success using Selenium with this new driver. By mimicking the browser, the software doesn't get recognized as a bot.
+
+But this is pretty heavy weight for our purposes. I need to better define what my purpose is.

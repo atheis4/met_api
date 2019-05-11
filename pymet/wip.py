@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
-import incapsula
 import os
-import requests
+from selenium import webdriver
 
 from pymet import collection
 from pymet.utils import constants
@@ -12,13 +11,9 @@ works = paintings.get_works_by_artist('gogh')
 
 path = os.path.join(constants.Urls.MET_ROOT, str(works[1].object_id))
 
-session = incapsula.IncapSession(user_agent='user-1')
-try:
-    res = session.get(path)
-except incapsula.IncapBlocked:
-    raise
+driver8 = webdriver.Chrome('/Users/Andrew/wip/webdrivers/chromedriver')
+driver8.set_window_size(1440, 900)
+driver8.get(path)
+image = driver8.find_element_by_id('artwork__image')
 
-soup = BeautifulSoup(res.text, 'xml')
-
-for img_src in soup.find_all('img'):
-    print(img_src)
+print(image)
